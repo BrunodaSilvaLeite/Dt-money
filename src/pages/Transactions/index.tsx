@@ -2,8 +2,12 @@ import { Header } from '../../components/Header'
 import { SearcForm } from '../Transactions/components/SearchForm/index'
 import { Summary } from '../../components/Summary'
 import { Price, TransactionsContainer, TransactionsTable } from './style'
+import { useContext } from 'react'
+import { TransactionsContext } from '../../context/TransactionsContext'
+import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionsContext)
   return (
     <div>
       <Header></Header>
@@ -13,23 +17,23 @@ export function Transactions() {
         <SearcForm></SearcForm>
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td>Desenvolvimento de site</td>
-              <td>
-                <Price statusColor="green">R$: 12,000,00</Price>
-              </td>
-              <td>Venda</td>
-              <td>11/01/2020</td>
-            </tr>
-
-            <tr>
-              <td>Aluguel do apartamento</td>
-              <td>
-                <Price statusColor="red"> - R$: 3,000,00</Price>
-              </td>
-              <td>Casa</td>
-              <td>14/01/2020</td>
-            </tr>
+            {transactions.map((transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <Price variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(transaction.price)}
+                    </Price>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </TransactionsTable>
       </TransactionsContainer>

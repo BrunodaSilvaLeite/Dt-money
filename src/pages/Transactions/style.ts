@@ -29,15 +29,14 @@ export const TransactionsTable = styled.table`
     }
   }
 `
-const STATUS_COLORS = {
-  green: 'green-300',
-  red: 'red-300',
-} as const
 
-interface PriceHightlightPtops {
-  statusColor: keyof typeof STATUS_COLORS
+interface PriceHighlightProps {
+  variant: 'income' | 'outcome'
 }
 
-export const Price = styled.span<PriceHightlightPtops>`
-  color: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+export const Price = styled.span<PriceHighlightProps>`
+  color: ${(props) =>
+    props.variant === 'income'
+      ? props.theme['green-300']
+      : props.theme['red-300']};
 `

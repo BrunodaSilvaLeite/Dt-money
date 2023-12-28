@@ -2,12 +2,15 @@ import { Header } from '../../components/Header'
 import { SearcForm } from '../Transactions/components/SearchForm/index'
 import { Summary } from '../../components/Summary'
 import { Price, TransactionsContainer, TransactionsTable } from './style'
-import { useContext } from 'react'
+import { useContextSelector } from 'use-context-selector'
 import { TransactionsContext } from '../../context/TransactionsContext'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 
 export function Transactions() {
-  const { transactions } = useContext(TransactionsContext)
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions
+  })
+
   return (
     <div>
       <Header></Header>

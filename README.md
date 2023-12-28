@@ -13,10 +13,6 @@
 </p>
 </br>
 
-![dt-money img](https://github.com/BrunodaSilvaLeite/Dt-money/assets/72769991/4177d455-ab2e-4551-be80-e7986c858853)
-
-![dt-money img2](https://github.com/BrunodaSilvaLeite/Dt-money/assets/72769991/3a04c316-5a85-4ff3-8675-8697a8f8fed5)
-
 ## 🚀 Technologies
 
 This project was developed with:

@@ -13,6 +13,9 @@
 </p>
 </br>
 
+![dt-money img](https://github.com/BrunodaSilvaLeite/Dt-money/assets/72769991/1d9afe05-edb1-4437-b730-3c607053e669)
+![dt-money img2](https://github.com/BrunodaSilvaLeite/Dt-money/assets/72769991/ca8d4b62-869c-4a4b-85dc-296ba714ac07)
+
 ## 🚀 Technologies
 
 This project was developed with:
